@@ -16,7 +16,7 @@ STEP 1: Import the relevant libraries
 
 cmake, dlib, numpy, face-recognition, opencv-python
 
-import cv2
+import cv2 \n
 import face_recognition
 import numpy as np 
 
