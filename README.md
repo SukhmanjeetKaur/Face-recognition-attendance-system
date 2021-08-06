@@ -16,31 +16,19 @@ STEP 1: Import the relevant libraries
 
 cmake, dlib, numpy, face-recognition, opencv-python
 
-import cv2 \n
-import face_recognition
-import numpy as np 
+![code](https://user-images.githubusercontent.com/87376487/128454815-8961d283-ee11-4415-ab92-2eafcbd16210.png)
 
 STEP 2: Loading Images and Converting to RGB.
 
-imgElon = face_recognition.load_image_file('ImagesBasic/Elon Musk.jpg')
-imgElon = cv2.cvtColor(imgElon,cv2.COLOR_BGR2RGB)
-imgTest = face_recognition.load_image_file('ImagesBasic/Elon Test.jpg')
-imgTest = cv2.cvtColor(imgTest,cv2.COLOR_BGR2RGB)
+![code2](https://user-images.githubusercontent.com/87376487/128454967-bdb13579-f7b7-49d3-9f08-7b8d81ce35bc.png)
 
 ![Elon Musk](https://user-images.githubusercontent.com/87376487/128454046-cdfd8839-782d-428c-b8d5-28e7b8867e26.jpg)
-Elon Musk 
 
 STEP 3: Find Faces Locations and Encodings
 
 In this step we will use the true functionality of the face recognition library. First we will find the faces in our images . This is done using HOG (Histogram of Oriented Gradients) at the backend. Once we have the face they are warped to remove unwanted rotations. Then the image is feed to a pretrained neural network that out puts 128 measurements that are unique to that particular face. The parts that the model measures is not known as this is what the model learns by itself when it was trained. Lucky for us all this is done is just 2 lines of code. Once we have the face locations and the encodings we can draw rectangles around our faces.
 
-faceLoc = face_recognition.face_locations(imgElon)[0]
-encodeElon = face_recognition.face_encodings(imgElon)[0]
-cv2.rectangle(imgElon,(faceLoc[3],faceLoc[0]),(faceLoc[1],faceLoc[2]),(255,0,255),2) # top, right, bottom, left
- 
-faceLocTest = face_recognition.face_locations(imgTest)[0]
-encodeTest = face_recognition.face_encodings(imgTest)[0]
-cv2.rectangle(imgTest,(faceLocTest[3],faceLocTest[0]),(faceLocTest[1],faceLocTest[2]),(255,0,255),2)
+![code3](https://user-images.githubusercontent.com/87376487/128455106-e78f7efd-70e5-4e3e-beeb-ef2a40594bd6.png)
 
 ![testing](https://user-images.githubusercontent.com/87376487/128454581-1edb011d-468d-45ae-ad21-35c1d88ccdf3.png)
 
